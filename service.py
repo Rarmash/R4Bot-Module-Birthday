@@ -6,8 +6,6 @@ from r4bot_sdk import register_hook_provider, unregister_hook_provider
 
 PROFILE_FIELDS_HOOK = "profile.fields"
 MODULE_ID = "birthday"
-
-
 class BirthdayService:
     def __init__(self, module):
         self.module = module
@@ -31,15 +29,6 @@ class BirthdayService:
         if year:
             age = self.get_current_age(day, month, year)
             value += f".{year} ({age})"
-
-        days_left = self.days_until_birthday(day, month)
-
-        if days_left == 0:
-            value += "\nСегодня 🎉"
-        elif days_left == 1:
-            value += "\nЗавтра"
-        else:
-            value += f"\nЧерез {days_left} дн."
 
         return [
             {
@@ -69,6 +58,12 @@ class BirthdayService:
     @staticmethod
     def days_until_birthday(day: int, month: int) -> int:
         today = date.today()
+        next_birthday = BirthdayService.get_next_birthday_date(day, month)
+        return (next_birthday - today).days
+
+    @staticmethod
+    def get_next_birthday_date(day: int, month: int) -> date:
+        today = date.today()
         current_year = today.year
 
         try:
@@ -82,7 +77,7 @@ class BirthdayService:
             except ValueError:
                 next_birthday = date(current_year + 1, 2, 28)
 
-        return (next_birthday - today).days
+        return next_birthday
 
     @staticmethod
     def get_current_age(day: int, month: int, year: int) -> int:
