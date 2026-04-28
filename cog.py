@@ -5,7 +5,7 @@ import discord
 from discord.commands import SlashCommandGroup
 from discord.ext import tasks
 
-from core.sdk import R4BotModule
+from r4bot_sdk import R4BotModule
 from .service import BirthdayService
 
 CONFIG_NOT_INITIALIZED_MESSAGE = (

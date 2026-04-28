@@ -1,1 +1,2 @@
 py-cord>=2.6.0
+r4bot-sdk @ git+https://github.com/Rarmash/R4Bot-SDK.git@master

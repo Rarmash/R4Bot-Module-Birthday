@@ -37,6 +37,7 @@ config/modules/birthday.json
 
 ## Требования
 - R4Bot >= 2.0
+- r4bot-sdk
 - runtime context с bot.r4_services
 - сервисы firebase, config, module_config
 

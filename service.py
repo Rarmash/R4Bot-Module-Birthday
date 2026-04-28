@@ -1,7 +1,7 @@
 from datetime import date
 from typing import Any
 
-from core.sdk import register_hook_provider, unregister_hook_provider
+from r4bot_sdk import register_hook_provider, unregister_hook_provider
 
 
 PROFILE_FIELDS_HOOK = "profile.fields"
